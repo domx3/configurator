@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+body {
+  background-color: #000300;
+  font-family: 'Tahoma';
+}
+
+.color-select {
+  @apply w-12 h-6 cursor-pointer rounded-xl
+  
+}
+
