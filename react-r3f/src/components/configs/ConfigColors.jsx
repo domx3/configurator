@@ -32,9 +32,9 @@ export default function ConfigColors() {
   return (
     <>
       <h2 className='mt-12 ml-4 font-bold text-xl'>Colour</h2>
-      <div className='flex justify-center items-center gap-8 mt-8' >
+      <div className='flex justify-start ml-12 mr-6 items-center gap-8 mt-8' >
       { Object.keys(selectColours).map((key)=>(
-        <div id={key}
+        <div key={key}
           className={`bg-[${transformHex(selectColours[key])}] color-select ${key === activeColor ? "active-color" : ""}`} 
           onClick={() => changeColour(key)}
           style={{ border: key === activeColor ? '4px solid white' : 'none'}}

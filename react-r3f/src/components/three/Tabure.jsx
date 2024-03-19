@@ -1,5 +1,5 @@
 import React, { useRef, useContext, useEffect } from 'react'
-import { useGLTF } from '@react-three/drei'
+import { useGLTF, useTexture } from '@react-three/drei'
 import { ConfiguratorContext } from '../ConfiguratorContext'
 import { useFrame, useThree } from '@react-three/fiber'
 import { degToRad } from 'three/src/math/MathUtils'
@@ -8,32 +8,34 @@ const modelPath = "/models/tabure3.glb"
 
 export function Tabure(props) {
 
-  const { invalidate, setFrameloop } = useThree()
-  const { nodes, materials } = useGLTF(modelPath)
+  const {configProps, setConfigProps} = useContext(ConfiguratorContext)
   const groupRef = useRef()
   const cusionRef = useRef()
   const buttonRef = useRef()
-  const {configProps, setConfigProps} = useContext(ConfiguratorContext)
   
+  const { invalidate, setFrameloop } = useThree()
+  const { nodes, materials } = useGLTF(modelPath)  
+
+  // change colour
   useEffect(()=>{
-    console.log("change to "+ configProps.colour)
     cusionRef.current.material.color.setHex(configProps.colour)
     buttonRef.current.material.color.setHex(configProps.colour)
-    invalidate()
-  }, [configProps.colour])
+    if(!configProps.rotate){
+      invalidate()
+    }
+  }, [configProps.colour, configProps.material])
 
-  
+  // change rotate
   useEffect(()=>{
     if(configProps.rotate){
       setFrameloop('always')
     } else {
       setFrameloop('demand')
-      invalidate()
-      
+      invalidate()      
     }
   }, [configProps.rotate])
   
-  useFrame((state, delta)=>{
+  useFrame((state, delta) => {
     if(configProps.rotate){
       groupRef.current.rotation.y += delta * degToRad(15)
     }
@@ -48,7 +50,7 @@ export function Tabure(props) {
           <mesh
             ref={cusionRef}
             geometry={nodes.Sphere.geometry}
-            material={materials.cusion_material}
+            material={configProps.material === "fabric" ? materials.fabric_material : materials.leather_material}
           />
           <mesh
             ref={buttonRef}

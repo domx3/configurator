@@ -5,7 +5,7 @@ export default function Navbar() {
 
   return (
     <div 
-    className=' h-12 w-screen bg-cyan-300 z-10'>
+      className=' h-12 w-screen bg-slate-500 z-10'>
     </div>
     
   )

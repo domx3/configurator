@@ -1,8 +1,6 @@
 import React, { useRef } from 'react'
-import { Monkey } from './Monkey'
 import { Canvas } from '@react-three/fiber'
 import { CameraControls } from '@react-three/drei'
-import Box from './Box'
 import { Tabure } from './tabure'
 
 function Scene() {
@@ -12,7 +10,7 @@ function Scene() {
   return (
     <>
       <Canvas
-        frameloop='demand'
+        frameloop='always'
         camera={{ fov:45, near: 0.1, far:100, position: [0,0.5,2.5]}}
         //shadows
         //flat linear

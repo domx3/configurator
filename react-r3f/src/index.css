@@ -14,7 +14,80 @@ body {
 }
 
 .color-select {
-  @apply w-12 h-6 cursor-pointer rounded-xl
+  @apply w-12 h-6 cursor-pointer rounded-xl;
   
 }
 
+
+.configurator-div {
+  width: clamp(300px, 33%, 600px);
+  height: 100%;
+  padding-left: 1rem;
+}
+
+
+.expander {
+  visibility: hidden;
+  position: absolute;
+  z-index: 5;
+  top: 3rem;
+  
+}
+
+
+.scene-div {
+  width: 67%;
+  height: 100%;
+}
+
+.expander-right {
+  right: 9%;
+  animation: fadeRight 1s ease-in-out;
+}
+
+@keyframes fadeRight {
+  from { right: -100px; }
+  to { right: 9%; }
+}
+
+@keyframes fadeLeft {
+  from { left: -100vw; }
+  to { left: 0; }
+}
+
+.expander-left {
+  left: 0;
+  animation: fadeLeft 1s ease-in-out;
+}
+
+.flip-svg {
+  transform: scale(-1,-1);
+}
+
+@media screen and (orientation:portrait) {
+  .configurator-div {
+    @apply bg-slate-300;
+    width: 90%;
+    position: absolute;
+    top: 3rem;
+    left: -100vw;
+    z-index: 2;
+    transition: left 0.5s;
+  }
+
+  .configurator-expanded {
+   left:0; 
+  }
+
+  .expander {
+    visibility: visible;
+  }
+
+  .scene-div {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+}
