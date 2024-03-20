@@ -37,7 +37,7 @@ export function Tabure(props) {
   
   useFrame((state, delta) => {
     if(configProps.rotate){
-      groupRef.current.rotation.y += delta * degToRad(15)
+      groupRef.current.rotation.y += delta * degToRad( configProps.speed * 0.3)
     }
   })
 

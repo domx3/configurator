@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --main-color: rgb(90, 57, 3);
+  --main-color-hover: rgba(248, 163, 5, 0.2);
+  --track-color: #9c9c9c;
+}
+
 html, body {
   margin: 0px;
   padding: 0px;
@@ -90,4 +96,41 @@ body {
     left: 0;
     z-index: 1;
   }
+}
+
+.customSlider {
+  width: 250px;
+  margin-right: 2rem;
+  margin-bottom: 12px;
+}
+
+.customSlider-track {
+  top: 8px;
+  height: 4px;
+  background: var(--track-color);
+}
+
+.customSlider-track.customSlider-track-0 {
+  background: var(--main-color);
+}
+
+.customSlider-thumb {
+  cursor: pointer;
+  background: var(--main-color);
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  outline: none;
+}
+
+.customSlider-thumb:hover {
+  box-shadow: 0 0 0 8px var(--main-color-hover);
+}
+
+.customSlider-mark {
+  cursor: pointer;
+  top: 6px;
+  width: 4px;
+  height: 8px;
+  background-color: #2c2c2c;
 }

@@ -23,9 +23,9 @@ function Scene() {
 
         {/* <Monkey /> */}
         <Tabure />
-        <ambientLight intensity={0.5} />
-        <spotLight position={[2, 20, 5]} decay={0} distance={45} penumbra={1} intensity={5} />
-        <spotLight position={[2, -20, 5]} decay={0} distance={45} penumbra={1} intensity={5} />
+        <ambientLight intensity={1} />
+        <spotLight position={[0, 20, 5]} decay={0} distance={45} penumbra={1} intensity={5} />
+        <spotLight position={[0, -20, -5]} decay={0} distance={45} penumbra={1} intensity={5} />
       
       
       </Canvas>

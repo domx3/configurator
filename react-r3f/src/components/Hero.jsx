@@ -9,6 +9,7 @@ export default function Hero() {
 
   const [configProps, setConfigProps] = useState({
     rotate: true,
+    speed: 50,
     material: 'fabric',
     colour: 0xBFAA9F,
     fourLegs: true 
